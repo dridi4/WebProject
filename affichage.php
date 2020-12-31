@@ -25,11 +25,11 @@
   <body>
 
     <?PHP
-        include "../core/infermierC.php";
-        $infermier1C=new infermierC();
-        $listeinfermiers=$infermier1C->afficherinfermiers();
+        include "../core/medicamentC.php";
+        $medicament1C=new medicamentC();
+        $listemedicaments=$medicament1C->affichermedicaments();
 
-        //var_dump($listeinfermiers->fetchAll());
+        //var_dump($listemedicaments->fetchAll());
         ?>
 
     <div class="container-scroller">
@@ -291,23 +291,21 @@
               <div class="col-lg-12 stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">infermier</h4>
+                    <h4 class="card-title">medicament</h4>
 
                     <table class="table table-bordered">
                       <thead>
                           <tr>
                               <th> id </th>
-                              <th>nom </th>
-                              <th> prenom </th>
-                              <th> cin </th>
-                              <th> adresse </th>
-                              <th> email </th>
-                              <th> numero </th>
+                              <th>doctor </th>
+                              <th> salleoperation </th>
+                              <th> quantite </th>
+
 
                           </tr>
                       </thead>
                                                   <?PHP
-foreach($listeinfermiers as $row){
+foreach($listemedicaments as $row){
 	?>
                       <tbody>
                         <tr class="table-info">
@@ -315,25 +313,24 @@ foreach($listeinfermiers as $row){
 
 
             <tr>
-             <td><?PHP echo $row['id']; ?></td>
-                <td><?PHP echo $row['nom']; ?></td>
-                <td><?PHP echo $row['prenom']; ?></td>
-                <td><?PHP echo $row['cin']; ?></td>
-                <td><?PHP echo $row['adresse']; ?></td>
-                <td><?PHP echo $row['email']; ?></td>
-                <td><?PHP echo $row['numero']; ?></td>
+
+                <td><?PHP echo $row['id']; ?></td>
+                <td><?PHP echo $row['doctor']; ?></td>
+                <td><?PHP echo $row['salleoperation']; ?></td>
+                <td><?PHP echo $row['quantite']; ?></td>
 
                 <td>
-                  <form method="POST" action="supprimerinfermier.php">
+                  <form method="POST" action="supprimermedicament.php">
 	<input type="submit" name="supprimer" value="supprimer">
 	<input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
     </form>
 	</td>
 	<td>
-	<form method="GET" action="modifierinfermier.php">
+	<form method="GET" action="modifiermedicament.php">
     	<input type="submit" name="modifier" value="modifier">
 	<input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
     </form>
+
 	</td>
 
 
