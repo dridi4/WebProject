@@ -1,14 +1,14 @@
 <?php
 
-include "../entites/medicament.php";
-include "../core/medicamentC.php";
+include "../entites/pharmacie.php";
+include "../core/pharmacieC.php";
 
 
 
 if (isset($_GET['id'])){
-$medicament=new medicament($_GET['id'],$_GET['doctor'],$_GET['salleoperation'],$_GET['quantite']);
-$medicament1C=new medicamentC();
-$medicament1C->modifiermedicament($medicament,$_GET['id']);
+$pharmacie=new pharmacie($_GET['id'],$_GET['nom'],$_GET['prix'],$_GET['quantite']);
+$pharmacie1C=new pharmacieC();
+$pharmacie1C->modifierpharmacie($pharmacie,$_GET['id']);
 header('Location: affichage.php');
 }
 
